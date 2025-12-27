@@ -1,0 +1,99 @@
+Loading checkpoint from checkpoints/classification_kan_bspline_tiny_s42.pt...
+
+--- PRUNING STATISTIK (kan_bspline - tiny) ---
+FFN Sparsity (nur die prunbaren Layer): 90.21%
+Global Sparsity (Gesamtmodell):         19.10%
+Original Parameter (Gesamt):            15,084,868
+Effektive Parameter (nach Pruning):     12,204,142.0
+Kompressions-Faktor:                    1.24x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9021032497594997, 'sparsity_global': 0.190967928920558, 'params_original': 15084868, 'params_effective': 12204142.0, 'test_acc': 91.46052631578948}
+Loading checkpoint from checkpoints/classification_kan_bspline_tiny_s1337.pt...
+
+--- PRUNING STATISTIK (kan_bspline - tiny) ---
+FFN Sparsity (nur die prunbaren Layer): 90.19%
+Global Sparsity (Gesamtmodell):         19.09%
+Original Parameter (Gesamt):            15,084,868
+Effektive Parameter (nach Pruning):     12,204,719.0
+Kompressions-Faktor:                    1.24x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9019225614277697, 'sparsity_global': 0.1909296786687162, 'params_original': 15084868, 'params_effective': 12204719.0, 'test_acc': 91.88157894736842}
+Loading checkpoint from checkpoints/classification_kan_bspline_tiny_s2024.pt...
+
+--- PRUNING STATISTIK (kan_bspline - tiny) ---
+FFN Sparsity (nur die prunbaren Layer): 90.21%
+Global Sparsity (Gesamtmodell):         19.10%
+Original Parameter (Gesamt):            15,084,868
+Effektive Parameter (nach Pruning):     12,204,229.0
+Kompressions-Faktor:                    1.24x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9020760055916306, 'sparsity_global': 0.1909621615515628, 'params_original': 15084868, 'params_effective': 12204229.0, 'test_acc': 91.61842105263158}
+Loading checkpoint from checkpoints/classification_kan_bspline_small_s42.pt...
+
+--- PRUNING STATISTIK (kan_bspline - small) ---
+FFN Sparsity (nur die prunbaren Layer): 90.84%
+Global Sparsity (Gesamtmodell):         28.43%
+Original Parameter (Gesamt):            40,804,996
+Effektive Parameter (nach Pruning):     29,202,190.0
+Kompressions-Faktor:                    1.40x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9083586046476672, 'sparsity_global': 0.28434768134764676, 'params_original': 40804996, 'params_effective': 29202190.0, 'test_acc': 91.96052631578948}
+Loading checkpoint from checkpoints/classification_kan_bspline_small_s1337.pt...
+
+--- PRUNING STATISTIK (kan_bspline - small) ---
+FFN Sparsity (nur die prunbaren Layer): 90.84%
+Global Sparsity (Gesamtmodell):         28.44%
+Original Parameter (Gesamt):            40,804,996
+Effektive Parameter (nach Pruning):     29,201,924.0
+Kompressions-Faktor:                    1.40x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9083794292127626, 'sparsity_global': 0.28435420015725527, 'params_original': 40804996, 'params_effective': 29201924.0, 'test_acc': 91.30263157894737}
+Loading checkpoint from checkpoints/classification_kan_bspline_small_s2024.pt...
+
+--- PRUNING STATISTIK (kan_bspline - small) ---
+FFN Sparsity (nur die prunbaren Layer): 90.75%
+Global Sparsity (Gesamtmodell):         28.41%
+Original Parameter (Gesamt):            40,804,996
+Effektive Parameter (nach Pruning):     29,213,769.0
+Kompressions-Faktor:                    1.40x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9074521097633077, 'sparsity_global': 0.28406391707525225, 'params_original': 40804996, 'params_effective': 29213769.0, 'test_acc': 91.59210526315789}
+Loading checkpoint from checkpoints/classification_kan_bspline_base_s42.pt...
+
+--- PRUNING STATISTIK (kan_bspline - base) ---
+FFN Sparsity (nur die prunbaren Layer): 91.63%
+Global Sparsity (Gesamtmodell):         37.64%
+Original Parameter (Gesamt):            123,966,724
+Effektive Parameter (nach Pruning):     77,299,582.0
+Kompressions-Faktor:                    1.60x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9163425596045964, 'sparsity_global': 0.3764489412497502, 'params_original': 123966724, 'params_effective': 77299582.0, 'test_acc': 91.42105263157895}
+Loading checkpoint from checkpoints/classification_kan_bspline_base_s1337.pt...
+
+--- PRUNING STATISTIK (kan_bspline - base) ---
+FFN Sparsity (nur die prunbaren Layer): 91.63%
+Global Sparsity (Gesamtmodell):         37.65%
+Original Parameter (Gesamt):            123,966,724
+Effektive Parameter (nach Pruning):     77,299,335.0
+Kompressions-Faktor:                    1.60x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9163474096254575, 'sparsity_global': 0.3764509337199231, 'params_original': 123966724, 'params_effective': 77299335.0, 'test_acc': 91.25}
+Loading checkpoint from checkpoints/classification_kan_bspline_base_s2024.pt...
+
+--- PRUNING STATISTIK (kan_bspline - base) ---
+FFN Sparsity (nur die prunbaren Layer): 91.62%
+Global Sparsity (Gesamtmodell):         37.64%
+Original Parameter (Gesamt):            123,966,724
+Effektive Parameter (nach Pruning):     77,306,776.0
+Kompressions-Faktor:                    1.60x
+-------------------------------------------
+Evaluating pruned model...
+{'sparsity_ffn': 0.9162013002925564, 'sparsity_global': 0.3763909095476299, 'params_original': 123966724, 'params_effective': 77306776.0, 'test_acc': 91.26315789473684}

@@ -1,0 +1,16 @@
+size,Architecture,task,dataset,batch_size,d_model,n_heads,n_layers,d_ff,total_params,params_non_embed
+tiny,KAN (B-Spline),classification,ag_news,32,192,3,12,77,15084868,5337220
+tiny,KAN (GR-KAN),classification,ag_news,32,192,3,12,768,15112132,5364484
+tiny,KAN (Mean),classification,ag_news,32,192,3,12,77,15084868,5337220
+tiny,MLP,classification,ag_news,32,192,3,12,768,15087172,5339524
+tiny,MLP (B-Spline),classification,ag_news,32,192,3,12,768,15179332,5431684
+small,KAN (B-Spline),classification,ag_news,32,384,6,12,154,40804996,21309700
+small,KAN (GR-KAN),classification,ag_news,32,384,6,12,1536,40839172,21343876
+small,KAN (Mean),classification,ag_news,32,384,6,12,154,40804996,21309700
+small,MLP,classification,ag_news,32,384,6,12,1536,40791172,21295876
+small,MLP (B-Spline),classification,ag_news,32,384,6,12,1536,40975492,21480196
+base,KAN (B-Spline),classification,ag_news,32,768,12,12,307,123966724,84976132
+base,KAN (GR-KAN),classification,ag_news,32,768,12,12,3072,124143748,85153156
+base,KAN (Mean),classification,ag_news,32,768,12,12,307,123966724,84976132
+base,MLP,classification,ag_news,32,768,12,12,3072,124049668,85059076
+base,MLP (B-Spline),classification,ag_news,32,768,12,12,3072,124418308,85427716
