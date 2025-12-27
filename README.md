@@ -77,7 +77,3 @@ This work builds upon several open-source projects:
 ---
 
 *Created by Yannick Müsch as part of the B.Sc. in E-Government at Rhine-Waal University of Applied Sciences.* 
-
-```
-
-```
