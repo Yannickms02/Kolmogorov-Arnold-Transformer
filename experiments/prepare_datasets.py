@@ -141,13 +141,13 @@ class LMDataset(Dataset):
 		}
 
 
-def prepare_wikitext(save_dir="./data/processed_wikitext2", seq_len=256):
-	"""Tokenize WikiText-2"""
+def prepare_wikitext(save_dir="./data/processed_wikitext103", seq_len=256):
+	"""Tokenize WikiText-103"""
 	print("1. Loading tokenizer (GPT-2)...")
 	tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
-	print("2. Loading WikiText-2...")
-	dataset = load_dataset("wikitext", "wikitext-2-v1")
+	print("2. Loading WikiText-103...")
+	dataset = load_dataset("wikitext", "wikitext-103-v1")
 
 	os.makedirs(save_dir, exist_ok=True)
 
@@ -312,7 +312,7 @@ def get_dataloaders(task="classification",
 		if lm_dataset == "fineweb":
 			data_dir = "./data/processed_fineweb"
 		elif lm_dataset == "wikitext":
-			data_dir = "./data/processed_wikitext2"
+			data_dir = "./data/processed_wikitext103"
 		else:
 			raise ValueError(f"Unknown lm_dataset: {lm_dataset}")
 
@@ -357,7 +357,7 @@ if __name__ == "__main__":
 
 	elif args.task == "wikitext":
 		prepare_wikitext(seq_len=args.seq_len)
-		tr, val, te, vocab = get_lm_dataloaders("./data/processed_wikitext2", seq_len=args.seq_len)
+		tr, val, te, vocab = get_lm_dataloaders("./data/processed_wikitext103", seq_len=args.seq_len)
 		batch = next(iter(tr))
 		print(f"Input Shape: {batch['input_ids'].shape}")
 		print(f"Target Shape: {batch['targets'].shape}")

@@ -14,19 +14,25 @@ PYTHON_EXECUTABLE = sys.executable
 GPU_COUNT = torch.cuda.device_count()
 IS_CPU_ONLY = (GPU_COUNT == 0)
 
-# Determine process count
+USE_DDP = GPU_COUNT > 1
+
 if IS_CPU_ONLY:
 	N_PROC = 1
 	DEVICE_NAME = "CPU"
-else:
+	RUNNER_MODE = "Standard Python (CPU)"
+elif USE_DDP:
 	N_PROC = GPU_COUNT
 	DEVICE_NAME = f"{GPU_COUNT}x {torch.cuda.get_device_name(0)}"
+	RUNNER_MODE = f"PyTorch DDP via torchrun (nproc={N_PROC})"
+else:
+	N_PROC = 1
+	DEVICE_NAME = f"1x {torch.cuda.get_device_name(0)}"
+	RUNNER_MODE = "Standard Python (Single GPU)"
 
 print(f"Hardware detected: {DEVICE_NAME}")
-print(f"-> Setting nproc_per_node={N_PROC}")
+print(f"-> Mode: {RUNNER_MODE}")
 
 ACTIVE_SIZES = ["tiny", "small", "base"]
-
 DATA_DIRS = ["./data/processed_ag_news", "./data/processed_fineweb"]
 
 
@@ -57,7 +63,6 @@ def prepare_data():
 
 def run_benchmark():
 	print(f"Starting benchmark run...")
-	print(f"Launcher: {TORCHRUN_EXECUTABLE} (nproc={N_PROC})")
 	print(
 		f"RUNS: {len(TRAINING_CONFIGS)} Tasks x {len(ARCHITECTURES)} Architectures x {len(ACTIVE_SIZES)} Sizes x {len(SEEDS)} Seeds")
 	print("-" * 60)
@@ -73,22 +78,39 @@ def run_benchmark():
 					print(f"\n{'=' * 50}")
 					print(f"TASK: {task}")
 					print(f"RUN: Arch={arch} | Size={size} | Seed={seed}")
+					print(f"MODE: {RUNNER_MODE}")
 					print(f"{'=' * 50}")
 
 					start_run = time.time()
 
-					cmd = [
-						PYTHON_EXECUTABLE,
-						"runner.py",
+					cmd = []
+
+					if USE_DDP:
+						# Construct torchrun command for Multi-GPU
+						cmd = [
+							TORCHRUN_EXECUTABLE,
+							"--nproc_per_node", str(N_PROC),
+							"runner.py"
+						]
+					else:
+						# Construct standard python command for CPU or Single GPU
+						cmd = [
+							PYTHON_EXECUTABLE,
+							"runner.py"
+						]
+
+					# Append arguments that apply to both modes
+					cmd.extend([
 						"--task", task,
 						"--arch", arch,
 						"--size", size,
 						"--seed", str(seed),
 						"--compile"
-					]
+					])
 
 					if IS_CPU_ONLY:
-						cmd.remove("--compile")
+						if "--compile" in cmd:
+							cmd.remove("--compile")
 
 					try:
 						subprocess.run(cmd, check=True)
